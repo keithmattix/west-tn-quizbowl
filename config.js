@@ -3,6 +3,7 @@
 // Documentation can be found at http://support.ghost.org/config/
 
 var path = require('path'),
+    parseDb = require('parse-database-url'),
     config;
 
 config = {
@@ -10,21 +11,35 @@ config = {
     // When running Ghost in the wild, use the production environment
     // Configure your URL and mail settings here
     production: {
-        url: 'http://my-ghost-blog.com',
-        mail: {},
+        url: 'http://west-tn-quizbowl.herokuapp.com',
+        mail: {
+            transport: 'SMTP',
+            options: {
+                service: 'Mailgun',
+                auth: {
+                    'user': process.env["MAILGUN_SMTP_LOGIN"],
+                    'pass': process.env["MAILGUN_SMTP_PASSWORD"]
+                }
+            }
+        },
         database: {
-            client: 'sqlite3',
-            connection: {
-                filename: path.join(__dirname, '/content/data/ghost.db')
-            },
+            client: 'postgres',
+            connection: parseDb(process.env["DATABASE_URL"]),
             debug: false
         },
-
         server: {
             // Host to be passed to node's `net.Server#listen()`
-            host: '127.0.0.1',
+            host: '0.0.0.0',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
-            port: '2368'
+            port: process.env.PORT
+        },
+        storage{
+            active: 'ghost-cloudinary-store',
+            'ghost-cloudinary-store': {
+                cloud_name: process.env["CLOUDINARY_URL"].replace('cloudinary://', '').split(':')[1].split('@')[1],
+                api_key: process.env["CLOUDINARY_URL"].replace('cloudinary://', '').split(':')[0],
+                api_secret: process.env["CLOUDINARY_URL"].replace('cloudinary://', '').split(':')[1].split('@')[0]
+            }
         }
     },
 
