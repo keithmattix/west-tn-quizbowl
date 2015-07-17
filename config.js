@@ -3,8 +3,15 @@
 // Documentation can be found at http://support.ghost.org/config/
 
 var path = require('path'),
-    parseDb = require('parse-database-url'),
     config;
+
+// Cloudinary setup
+
+if(process.env["CLOUDINARY_URL"]){
+    var cloud_name = process.env["CLOUDINARY_URL"].replace('cloudinary://', '').split(':')[1].split('@')[1];
+    var api_key = process.env["CLOUDINARY_URL"].replace('cloudinary://', '').split(':')[0];
+    var api_secret = process.env["CLOUDINARY_URL"].replace('cloudinary://', '').split(':')[1].split('@')[0];
+}
 
 config = {
     // ### Production
@@ -24,7 +31,13 @@ config = {
         },
         database: {
             client: 'postgres',
-            connection: parseDb(process.env["DATABASE_URL"]),
+            connection: {
+                host: process.env.POSTGRES_HOST,
+                user: process.env.POSTGRES_USER,
+                password: process.env.POSTGRES_PASSWORD,
+                database: process.env.POSTGRES_DATABASE,
+                port: '5432'
+            },
             debug: false
         },
         server: {
@@ -33,12 +46,12 @@ config = {
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
             port: process.env.PORT
         },
-        storage{
+        storage: {
             active: 'ghost-cloudinary-store',
             'ghost-cloudinary-store': {
-                cloud_name: process.env["CLOUDINARY_URL"].replace('cloudinary://', '').split(':')[1].split('@')[1],
-                api_key: process.env["CLOUDINARY_URL"].replace('cloudinary://', '').split(':')[0],
-                api_secret: process.env["CLOUDINARY_URL"].replace('cloudinary://', '').split(':')[1].split('@')[0]
+                cloud_name: cloud_name || '',
+                api_key: api_key || '',
+                api_secret: api_secret || ''
             }
         }
     },
