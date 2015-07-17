@@ -31,7 +31,7 @@ config = {
         },
         database: {
             client: 'postgres',
-            connection: require('parse-database-url')(process.env["DATABASE_URL"]),
+            connection: require('parse-database-url')(process.env["DATABASE_URL"] || ''),
             debug: false
         },
         server: {
