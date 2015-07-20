@@ -19,7 +19,7 @@
         //     e.preventDefault();
         //     $("body").toggleClass("nav-opened nav-closed");
         // });
-        if($(".post-template.main-header.no-cover").length){
+        if($(".post-template .main-header.no-cover").length){
             $(".nav li a").css("color", "#9EABB3");
             $(".nav li a").hover(function onLinkHover(e){
                 $(this).css("border-bottom", "1px solid #9EABB3");
