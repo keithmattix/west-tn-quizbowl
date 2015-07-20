@@ -1646,7 +1646,7 @@ body:not(.post-template) .post-title {
     }
 
     .nav {
-        position: fixed;
+        position: absolute;
         top: 0;
         right: 0;
         z-index: 11;
