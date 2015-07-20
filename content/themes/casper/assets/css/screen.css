@@ -1648,9 +1648,9 @@ body:not(.post-template) .post-title {
     .nav {
         position: fixed;
         top: 0;
-        left: 0;
+        right: 0;
         z-index: 11;
-        width: 100%;
+        width: 85%;
         height: 55px;
         opacity: 1;
         background: transparent;
