@@ -1742,7 +1742,7 @@ body:not(.post-template) .post-title {
         color: white;
         font-family: Futura;
         font-size: 2rem;
-        border: 0;
+        border-bottom: 1px solid transparent;
         box-sizing: border-box;
 
     }
