@@ -1619,6 +1619,231 @@ body:not(.post-template) .post-title {
     float: left;
 }
 
+/* ==========================================================================
+   11. Media Queries - Bigger than 900px
+   ========================================================================== */
+
+@media only screen and (min-width: 900px){
+    .main-nav {
+        position: relative;
+        padding: 35px 40px;
+        margin: 0 0 30px 0;
+    }
+
+    .main-nav a {
+        text-decoration: none;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    /* Navigation */
+    body .nav-cover {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 240px;
+        bottom: 0;
+        z-index: 200;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 11;
+        width: 100%;
+        height: 55px;
+        opacity: 1;
+        background: transparent;
+        margin-bottom: 0;
+        overflow-y: auto;
+        margin-top: 18px;
+        -webkit-transition: none;
+                transition: none;
+    }
+
+    body.nav-closed .nav {
+        -webkit-transform: none;
+            -ms-transform: none;
+                transform: none;
+    }
+
+    body.nav-opened .nav {
+        opacity: 1;
+        -webkit-transition: none;
+                transition: none;
+        -webkit-transform: none;
+            -ms-transform: none;
+                transform: none;
+    }
+
+    .nav-title {
+        display: none;
+    }
+
+    .nav-close {
+        display: none;
+    }
+
+    .nav-close:focus {
+        outline: 0;
+    }
+
+    .nav-close:before,
+    .nav-close:after {
+        display: none;
+    }
+
+    .nav-close:before {
+        -webkit-transform: none;
+            -ms-transform: none;
+                transform: none;
+    }
+
+    .nav-close:after {
+        -webkit-transform: none;
+            -ms-transform: none;
+                transform: none;
+    }
+
+    .nav-close:hover:before,
+    .nav-close:hover:after {
+        background: rgb(255,255,255);
+    }
+
+    .nav ul {
+        padding-top: 15px;
+        padding-right: 0px;
+        padding-bottom: 5px;
+        padding-left: 0;
+        list-style: none;
+        right: 0;
+        text-align: right;
+    }
+
+    .nav li:before {
+        display: none;
+    }
+    .nav li {
+        margin: 0;
+        display: inline-block;
+        margin-left: 10px;
+        width: auto;
+    }
+    .nav li:last-child{
+        margin-right: 4%;
+    }
+    .nav li a {
+        text-decoration: none;
+        line-height: 1.4;
+        display: inline-block;
+        padding: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        color: white;
+        font-family: Futura;
+        font-size: 2rem;
+        border: 0;
+        box-sizing: border-box;
+
+    }
+    .nav li a:after {
+        display: none;
+    }
+    .nav .nav-current:before {
+        color: #fff;
+    }
+    .nav .nav-current a:after {
+        display: none;
+    }
+
+    .nav a:link,
+    .nav a:visited {
+        color: white;
+    }
+
+    .nav li.nav-current a,
+    .nav a:hover,
+    .nav a:active,
+    .nav a:focus {
+        color: white;
+    }
+
+    .nav a:hover,
+    .nav a:active,
+    .nav a:focus {
+        border-bottom: .099em solid white;
+    }
+
+    .menu-button {
+        display: none;
+    }
+    .menu-button:before {
+        font-size: 12px;
+        font-weight: bold;
+        margin-right: 6px;
+        position: relative;
+        top: 1px;
+    }
+    .menu-button:hover {
+        background: #fff;
+    }
+    .menu-button:focus {
+        outline: 0;
+    }
+
+    /* When the navigation is closed */
+    .nav-closed .menu-button {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.6);
+    }
+    .nav-closed .menu-button:hover {
+        color: #222;
+    }
+
+    /* When the navigation is closed and there is no cover image */
+    .nav-closed .no-cover .menu-button {
+        border-color: #BFC8CD;
+        color: #9EABB3;
+    }
+    .nav-closed .no-cover .menu-button:hover {
+        border-color: #555;
+        color: #555;
+    }
+
+    /* When the navigation is opened */
+    .nav-opened .menu-button {
+        padding: 0 12px;
+        background: #111;
+        border-color: #111;
+        color: #fff;
+        -webkit-transform: translate3D(94px, 0, 0);
+            -ms-transform: translate3D(94px, 0, 0);
+                transform: translate3D(94px, 0, 0);
+        transition: all 0.3s ease;
+    }
+
+    .nav-opened .menu-button .word {
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Special styles when overlaid on an image*/
+    .main-nav.overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 70px;
+        border: none;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
+    }
+    .no-cover .main-nav.overlay {
+        background: none;
+    }
+    .nav-cover{
+        display: none;
+    }
+}
 
 /* ==========================================================================
    11. Media Queries - Smaller than 900px
