@@ -15,10 +15,10 @@
 
         $(".scroll-down").arctic_scroll();
 
-        // $(".menu-button, .nav-cover, .nav-close").on("click", function(e){
-        //     e.preventDefault();
-        //     $("body").toggleClass("nav-opened nav-closed");
-        // });
+        $(".menu-button, .nav-cover, .nav-close").on("click", function(e){
+            e.preventDefault();
+            $("body").toggleClass("nav-opened nav-closed");
+        });
         if($(".post-template .main-header.no-cover").length){
             $(".nav li a").css("color", "#9EABB3");
             $(".nav li a").hover(function onLinkHover(e){

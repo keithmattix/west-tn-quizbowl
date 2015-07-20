@@ -1983,6 +1983,10 @@ body:not(.post-template) .post-title {
         border-left: none;
     }
 
+    .blog-logo.text{
+        font-size: 3.5rem;
+    }
+
 }
 
 
@@ -2244,6 +2248,9 @@ body:not(.post-template) .post-title {
 
     .read-next .post {
         width: 100%;
+    }
+    .blog-logo.text{
+        font-size: 3rem;
     }
 
 }
