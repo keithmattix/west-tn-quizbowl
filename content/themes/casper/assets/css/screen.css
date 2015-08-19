@@ -14,7 +14,7 @@
     7.  Read Next
     8.  Third Party Elements
     9.  Pagination
-    10.  Footer
+    10. Footer
     11. Media Queries (Tablet)
     12. Media Queries (Mobile)
     13. Animations
@@ -792,7 +792,7 @@ body.nav-opened .nav {
     letter-spacing: 2px;
 }
 
-.post-template .no-cover .blog-logo.text{
+.post-template .no-cover .blog-logo.text, .calendar .blog-logo.text{
     color: #9EABB3;
 }
 
@@ -1062,6 +1062,25 @@ body:not(.post-template) .post-title {
     line-height: 1.5em;
 }
 
+body.calendar #calendar{
+    max-width: 1200px;   
+    margin: 0 auto; 
+}
+
+body.calendar  #calendar table{
+    margin: 0px;
+}
+
+body.calendar #calendar table thead:first-child tr:first-child td{
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+body.calendar #newEvents{
+    margin-top: 15px;
+}
+body.calendar #newEvents p{
+    text-align: center;
+}
 
 /* ==========================================================================
    5. Single Post - When you click on an individual post

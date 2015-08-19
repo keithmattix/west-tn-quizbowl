@@ -49,6 +49,8 @@ frontendRoutes = function (middleware) {
         res.redirect(301, subdir + '/rss/');
     });
 
+    router.get('/calendar/', frontend.calendar);
+
     // Tags
     router.get('/' + routeKeywords.tag + '/:slug/rss/', frontend.rss);
     router.get('/' + routeKeywords.tag + '/:slug/rss/:page/', frontend.rss);

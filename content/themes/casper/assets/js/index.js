@@ -10,25 +10,38 @@
 
     $document.ready(function () {
 
-        var $postContent = $(".post-content");
-        $postContent.fitVids();
+      var $postContent = $(".post-content");
+      $postContent.fitVids();
 
-        $(".scroll-down").arctic_scroll();
+      $(".scroll-down").arctic_scroll();
 
-        $(".menu-button, .nav-cover, .nav-close").on("click", function(e){
-            e.preventDefault();
-            $("body").toggleClass("nav-opened nav-closed");
+      $(".menu-button, .nav-cover, .nav-close").on("click", function(e){
+          e.preventDefault();
+          $("body").toggleClass("nav-opened nav-closed");
+      });
+      if($(".post-template .main-header.no-cover").length || $("body").hasClass("calendar")){
+          $(".nav li a").css("color", "#9EABB3");
+          $(".nav li a").hover(function onLinkHover(e){
+              $(this).css("border-bottom", "1px solid #9EABB3");
+          }, function offLinkHover(e){
+              $(this).css("border-bottom", "1px solid transparent");
+          });
+      }
+      $(document).ready(function() {
+        $('#calendar').fullCalendar({
+          googleCalendarApiKey: 'AIzaSyA56sYTYHowgJROzg3yy40sY8w36fKqjUY',
+          events: {
+              googleCalendarId: 'k98ejkceodjqvg10vks5f2cvk0@group.calendar.google.com'
+          },
+          header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+          },
+          editable: true,
+          eventLimit: true, // allow "more" link when too many events
         });
-        if($(".post-template .main-header.no-cover").length){
-            $(".nav li a").css("color", "#9EABB3");
-            $(".nav li a").hover(function onLinkHover(e){
-                $(this).css("border-bottom", "1px solid #9EABB3");
-            }, function offLinkHover(e){
-                $(this).css("border-bottom", "1px solid transparent");
-            });
-
-        }
-
+      });
     });
 
     // Arctic Scroll by Paul Adam Davis

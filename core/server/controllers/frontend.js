@@ -245,6 +245,14 @@ frontendControllers = {
         filter: 'author',
         slugTemplate: true
     }),
+    calendar: function(req, res){
+        var data = {};
+        if (res.error) {
+            data.error = res.error;
+        }
+        setResponseContext(req, res);
+        return res.render('calendar', data);
+    },
     preview: function (req, res, next) {
         var params = {
                 uuid: req.params.uuid,
