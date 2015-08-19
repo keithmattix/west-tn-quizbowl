@@ -27,21 +27,6 @@
               $(this).css("border-bottom", "1px solid transparent");
           });
       }
-      $(document).ready(function() {
-        $('#calendar').fullCalendar({
-          googleCalendarApiKey: 'AIzaSyA56sYTYHowgJROzg3yy40sY8w36fKqjUY',
-          events: {
-              googleCalendarId: 'k98ejkceodjqvg10vks5f2cvk0@group.calendar.google.com'
-          },
-          header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
-          },
-          editable: true,
-          eventLimit: true, // allow "more" link when too many events
-        });
-      });
     });
 
     // Arctic Scroll by Paul Adam Davis

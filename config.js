@@ -149,7 +149,7 @@ config = {
             port: '2369'
         },
         logging: false
-    }
+    },
 };
 
 // Export config

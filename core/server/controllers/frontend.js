@@ -251,6 +251,7 @@ frontendControllers = {
             data.error = res.error;
         }
         setResponseContext(req, res);
+        res.locals.gmail = config.gmail;
         return res.render('calendar', data);
     },
     preview: function (req, res, next) {
